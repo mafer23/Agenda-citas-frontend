@@ -1,0 +1,70 @@
+
+
+<div class="bg-blue-500 w-full h-screen pt-36">
+    <div class="max-w-md mx-auto  bg-white h-80 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="md:flex justify-center">
+          <div class="bg-blue-red-500 ">
+            <h1 class="text-2xl font-bold mt-4">{{ title }}</h1>
+            <div class="container mx-auto mt-2 ">
+                
+              
+                <div class="mb-4">
+                  <input type="email" [(ngModel)]="email" placeholder="Enter email"
+                         class="border rounded-lg py-2 px-4 w-full"/>
+                </div>
+              
+                <button (click)="searchCallState()"
+                        class="bg-blue-500 text-white w-20 h-10 rounded-lg">
+                  Search
+                </button>
+              
+                <div class="m-4 flex flex-row">
+                    <div *ngIf="userState" class="alert alert-success">
+                        <strong>Estado del usuario:</strong> 
+                        <p>{{ userState }}</p>
+                    </div>
+                  <div *ngIf="errorMessage" class="text-red-500">
+                    Error: {{ errorMessage }}
+                  </div>
+                  <button (click)="toggleMenu()" data-ripple-light="true" data-popover-target="menu" 
+                 class="ml-8  select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                Status Menu
+                 </button>
+
+               <!-- Modal for updating state -->
+                <div *ngIf="menuOpen" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                    <div class="bg-white rounded-lg p-6">
+                    <span (click)="toggleMenu()" class="absolute top-2 right-2 text-gray-600 cursor-pointer">&times;</span>
+                    <h2 class="text-xl font-bold mb-4">Actualizar Estado</h2>
+                    <select [(ngModel)]="selectedState" class="border rounded-lg py-2 px-4 w-full mb-4">
+                        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                    </select>
+                    <button (click)="actualizarEstado()" class="bg-blue-500 text-white py-2 px-4 rounded-lg mr-2">Guardar</button>
+                    <button (click)="toggleMenu()" class="bg-gray-500 text-white py-2 px-4 rounded-lg">Cancelar</button>
+                    </div>
+                </div>
+                
+                <!-- Modal Registro exitoso -->
+                <div *ngIf="registroMenu " class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                  <div class="bg-white rounded-lg p-6">
+                    <span (click)="toggleNestedRegistro()" class="absolute top-2 right-2 text-gray-600 cursor-pointer">&times;</span>
+                    <h2 class="text-xl font-bold mb-4">Registro exitoso</h2>
+                    <button (click)="toggleNestedRegistro()" class="bg-gray-500 text-white py-2 px-4 rounded-lg">Cerrar</button>
+                    </div>
+                </div>
+
+                
+                </div>
+              </div>
+              
+
+          
+            
+          </div>
+         
+        </div>
+      </div>
+
+</div>
+
+
