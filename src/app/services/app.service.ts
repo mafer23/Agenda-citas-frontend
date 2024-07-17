@@ -26,6 +26,7 @@ export class AppService {
   }
 
   getUserStateLocalStorage(): string | null {
+
     return localStorage.getItem('userState');
   }
 
@@ -34,4 +35,9 @@ export class AppService {
     const body = { email, newState };
     return this.http.post<any>(url, body);
   }
+
+  getAllDate(email: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/getLeadData?email=${email}`);
+  }
+
 }

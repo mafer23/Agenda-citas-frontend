@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Signal, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppService } from "../../src/app/services/app.service";
 import { response } from 'express';
@@ -8,6 +8,21 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { HttpClientModule } from '@angular/common/http';
+import { createSignal } from '@angular/core/primitives/signals';
+
+interface LeadData {
+  campo1:string;
+  campo2: string;
+  campo3: string;
+  campo4: string;
+  campo5: string;
+  campo6: string;
+  campo7: string;
+  campo8: string;
+  campo9: string;
+  
+ 
+}
 
 @Component({
   selector: 'app-root',
@@ -21,12 +36,17 @@ export class AppComponent {
   title = 'Change of status register';
 
   email: string = '';
-  userState: any ;
+  cerrar: boolean = false;
+  userState = signal('L') ;
+  //userState1: any;
   errorMessage: string | null = null;
   isModalOpen = false;
   selectedState!: string;
   states = ['Contactado', 'Esperando respuesta', 'Llamada', 'Win', 'Lose'];
   changeLog: string[] = [];
+  
+  leadData: LeadData = {} as LeadData; // Inicializa como un objeto vacío tipado
+
 
   constructor(private callService:AppService){
 
@@ -49,25 +69,23 @@ export class AppComponent {
   searchCallState() {
     this.callService.getUserState(this.email).subscribe(
       (response: any) => {
-        this.userState = response.state;
+        console.log('1')
+        this.userState.set(response.state);
         this.errorMessage = null;
-
+ console.log('Primer dato:', this.userState)
          // Guardar el estado del usuario en localStorage
-         if (this.userState) {
-          this.callService.setUserStateLocalStorage(this.userState);
-        }
+       
       },
       (error: any) => {
-        this.userState = "";
+        console.log('2')
+        this.userState();
         this.errorMessage = error.error;
       }
     );
+    this.getAllDate() 
   }
 
-  // Método para obtener el estado del usuario desde localStorage
-  getUserStateFromLocalStorage(): void {
-    this.userState = this.callService.getUserStateLocalStorage();
-  }
+
   openStateModal() {
     this.isModalOpen = true;
   }
@@ -78,13 +96,7 @@ export class AppComponent {
 
  
 
-  saveState() {
-    if (this.selectedState) {
-      this.userState = this.selectedState;
-      this.logChange(`Estado guardado: ${this.selectedState}`);
-      this.closeModal();
-    }
-  }
+
   
   logChange(message: string) {
     const timestamp = new Date();
@@ -98,17 +110,43 @@ export class AppComponent {
     this.callService.updateState(this.email, this.selectedState)
       .subscribe(
         (response) => {
-          console.log('Estado actualizado correctamente', response);
+          console.log('3')
+           console.log('buenasfdgfdgfd', this.selectedState)
+          this.userState.set('Hola');
+
           this.registroMenu = !this.registroMenu
+ 
+        
+        
         },
         (error) => {
           console.error('Error al actualizar estado:', error);
         }
       );
+ 
 
   }
 
   toggleNestedRegistro() {
     this.registroMenu = !this.registroMenu
   }
+  
+  getAllDate() {
+    
+    this.callService.getAllDate(this.email).subscribe(
+      (data) => {
+        this.leadData = data.leadData;// Convertir los valores de leadData en un array
+        this.errorMessage = null;
+        console.log('Datos del lead:', this.leadData);
+      },
+      (error) => {
+        this.errorMessage = 'Error al obtener datos del lead';
+        console.error('Error:', error);
+      }
+    );
+     
+   
+  }
+
+
 }
