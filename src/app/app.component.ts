@@ -5,7 +5,7 @@ import { response } from 'express';
 import { error } from 'console';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { HttpClientModule } from '@angular/common/http';
 import { createSignal } from '@angular/core/primitives/signals';
@@ -37,7 +37,9 @@ export class AppComponent {
 
   email: string = '';
   cerrar: boolean = false;
-  userState = signal('L') ;
+  userState: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
+ 
   //userState1: any;
   errorMessage: string | null = null;
   isModalOpen = false;
@@ -70,7 +72,8 @@ export class AppComponent {
     this.callService.getUserState(this.email).subscribe(
       (response: any) => {
         console.log('1')
-        this.userState.set(response.state);
+        this.userState.next(response.state); // Actualiza el estado del usuario
+        localStorage.setItem('userState', response.state); //
         this.errorMessage = null;
  console.log('Primer dato:', this.userState)
          // Guardar el estado del usuario en localStorage
@@ -78,7 +81,7 @@ export class AppComponent {
       },
       (error: any) => {
         console.log('2')
-        this.userState();
+        this.userState.error(error);
         this.errorMessage = error.error;
       }
     );
@@ -111,9 +114,9 @@ export class AppComponent {
       .subscribe(
         (response) => {
           console.log('3')
-           console.log('buenasfdgfdgfd', this.selectedState)
-          this.userState.set('Hola');
-
+          console.log('Estado actualizado exitosamente');
+          console.log('Nuevo estado:', this.selectedState);
+          this.userState.next(this.selectedState);
           this.registroMenu = !this.registroMenu
  
         

@@ -33,55 +33,66 @@
                    
                     <span (click)="toggleMenu()" class="absolute top-2 right-2 text-gray-600 cursor-pointer">&times;</span>
                    
-                    <h1>Formulario de llamadas</h1>
+                    <strong>Formulario de llamadas</strong>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Fecha</label>
-                      <input  id="campo1" [disabled]="cerrar" name="campo1" [(ngModel)]="leadData.campo1"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">Agendacion</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo1"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
+
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo2"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">Email</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo2"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo3"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">UTM Source</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo3"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo4"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">UTM Campaign</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo4"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo5"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">UTM Medium</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo5"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo6"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">UTM Term</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo6"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo7"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">UTM Content</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo7"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                     <div class="mb-4">
-                      <label for="nombre" class="block text-sm font-medium text-gray-700">Correo</label>
-                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo8"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <label for="nombre" class="block text-sm font-medium text-gray-700">Closer</label>
+                      <input type="text" id="campo1" name="campo1" [(ngModel)]="leadData.campo8"  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled>
                     </div>
                   
-                    <label for="nombre" class="block text-sm font-medium text-gray-700">Actualizar datos</label>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Status</label>
                     <select [(ngModel)]="selectedState" class="border rounded-lg py-2 px-4 w-full mb-4">
                         <option *ngFor="let state of states" [value]="state">{{ state }}</option>
                     </select>
                     <button (click)="actualizarEstado()" class="bg-blue-500 text-white py-2 px-4 rounded-lg mr-2">Guardar</button>
-                    <button (click)="toggleMenu()" class="bg-gray-500 text-white py-2 px-4 rounded-lg">Cancelar</button>
+                    <button (click)="toggleMenu()" class="ml-8  select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Cerrar</button>
                      
                   </div>
                 </div>
 
-                <div class="m-4 flex flex-row">
-                  <div  class="alert alert-success">
-                      <strong>User</strong>
-                      <strong>Estado del usuario:</strong> 
-                      <p>{{ userState()  }} textoxs</p>
+                <div class="m-4 w-60 h-32 flex flex-col">
+                  <div  *ngIf="leadData" class="alert alert-success">
+                    <div>
+                      <strong>User: </strong>
+                      <input type="text" class="w-20 border-2 border-sky-500" [(ngModel)]="leadData.campo8" disabled >
+
+                    </div> 
+                  <div>
+                    <strong>Estado del usuario: </strong> 
+                    <p>{{ userState | async  }} </p>
+                  </div>
+                   <div>
+                    <strong>Fecha de llamada: </strong> 
+                    <input type="text" class="w-20 border-2 border-sky-500" [(ngModel)]="leadData.campo1" disabled>
+                   </div>
                       
                   </div>
                 <div *ngIf="errorMessage" class="text-red-500">
